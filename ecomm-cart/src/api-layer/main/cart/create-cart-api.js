@@ -37,6 +37,8 @@ class CreateCartManager extends CartManager {
     jsonObj.items = this.items;
     jsonObj.lastModified = this.lastModified;
     jsonObj.yuy = this.yuy;
+    jsonObj.OI = this.OI;
+    jsonObj.frf = this.frf;
   }
 
   async checkBasicAuth() {
@@ -49,6 +51,8 @@ class CreateCartManager extends CartManager {
     this.items = request.body?.items;
     this.lastModified = request.body?.lastModified;
     this.yuy = request.body?.yuy;
+    this.OI = request.body?.OI;
+    this.frf = request.body?.frf;
     this.id = request.body?.id ?? request.query?.id ?? request.id;
     this.requestData = request.body;
     this.queryData = request.query ?? {};
@@ -62,6 +66,8 @@ class CreateCartManager extends CartManager {
     this.items = request.mcpParams.items;
     this.lastModified = request.mcpParams.lastModified;
     this.yuy = request.mcpParams.yuy;
+    this.OI = request.mcpParams.OI;
+    this.frf = request.mcpParams.frf;
     this.id = request.mcpParams?.id;
     this.requestData = request.mcpParams;
   }
@@ -92,6 +98,8 @@ class CreateCartManager extends CartManager {
           ? JSON.parse(this.yuy)
           : this.yuy
         : null,
+      OI: this.OI,
+      frf: this.frf,
       isActive: true,
     };
 
@@ -197,6 +205,55 @@ class CreateCartManager extends CartManager {
     }
   }
 
+  checkParameterType_OI(paramValue) {
+    const isBoolean = (n) => !!n === n;
+    if (!isBoolean(paramValue)) {
+      throw new BadRequestError("errMsg_OIisNotAValidBoolean");
+    }
+
+    return true;
+  }
+
+  checkParameter_OI() {
+    if (this.OI == null) {
+      throw new BadRequestError("errMsg_OIisRequired");
+    }
+
+    if (Array.isArray(this.OI)) {
+      throw new BadRequestError("errMsg_OIMustNotBeAnArray");
+    }
+
+    // Parameter Type: Boolean
+
+    if (!this.checkParameterType_OI(this.OI)) {
+      throw new BadRequestError("errMsg_OITypeIsNotValid");
+    }
+  }
+
+  checkParameterType_frf(paramValue) {
+    if (isNaN(paramValue)) {
+      return false;
+    }
+
+    return true;
+  }
+
+  checkParameter_frf() {
+    if (this.frf == null) {
+      throw new BadRequestError("errMsg_frfisRequired");
+    }
+
+    if (Array.isArray(this.frf)) {
+      throw new BadRequestError("errMsg_frfMustNotBeAnArray");
+    }
+
+    // Parameter Type: Integer
+
+    if (!this.checkParameterType_frf(this.frf)) {
+      throw new BadRequestError("errMsg_frfTypeIsNotValid");
+    }
+  }
+
   checkParameters() {
     if (this.cartId) this.checkParameter_cartId();
 
@@ -205,6 +262,10 @@ class CreateCartManager extends CartManager {
     if (this.items) this.checkParameter_items();
 
     if (this.yuy) this.checkParameter_yuy();
+
+    if (this.OI) this.checkParameter_OI();
+
+    if (this.frf) this.checkParameter_frf();
   }
 
   async doBusiness() {

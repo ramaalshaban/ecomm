@@ -1,7 +1,7 @@
 # Service Design Specification
 
 **ecomm-cart-service** documentation
--Version:**`1.0.7`**
+-Version:**`1.0.9`**
 
 ## Scope
 
@@ -93,12 +93,14 @@ The existing record will be updated with the new data.No error will be thrown.
 
 ### Properties Schema
 
-| Property       | Type   | Required | Description                                                                               |
-| -------------- | ------ | -------- | ----------------------------------------------------------------------------------------- |
-| `userId`       | ID     | Yes      | User that owns the cart.                                                                  |
-| `items`        | Object | Yes      | List of items (cartItem) in the cart. Each represents a product selection at time of add. |
-| `lastModified` | Date   | Yes      | Last time the cart was modified (any change to items).                                    |
-| `yuy`          | Object | Yes      | -                                                                                         |
+| Property       | Type    | Required | Description                                                                               |
+| -------------- | ------- | -------- | ----------------------------------------------------------------------------------------- |
+| `userId`       | ID      | Yes      | User that owns the cart.                                                                  |
+| `items`        | Object  | Yes      | List of items (cartItem) in the cart. Each represents a product selection at time of add. |
+| `lastModified` | Date    | Yes      | Last time the cart was modified (any change to items).                                    |
+| `yuy`          | Object  | Yes      | -                                                                                         |
+| `OI`           | Boolean | Yes      | -                                                                                         |
+| `frf`          | Integer | Yes      | -                                                                                         |
 
 - Required properties are mandatory for creating objects and must be provided in the request body if no default value is set.
 
@@ -118,6 +120,8 @@ Since default values are applied on db level, they should be literal values, not
 - **items**: []
 - **lastModified**: new Date()
 - **yuy**: {}
+- **OI**: false
+- **frf**: 0
 
 ### Constant Properties
 
@@ -128,7 +132,7 @@ A property is set to be constant if the `Allow Update` option is set to `false`.
 
 ### Auto Update Properties
 
-`userId` `items` `lastModified` `yuy`
+`userId` `items` `lastModified` `yuy` `OI` `frf`
 
 An update crud API created with the option `Auto Params` enabled will automatically update these properties with the provided values in the request body.
 If you want to update any property in your own business logic not by user input, you can set the `Allow Auto Update` option to false.
@@ -136,7 +140,7 @@ These properties will be added to the update API's body parameters and can be up
 
 ### Elastic Search Indexing
 
-`userId` `lastModified` `yuy`
+`userId` `lastModified` `yuy` `OI` `frf`
 
 Properties that are indexed in Elastic Search will be searchable via the Elastic Search API.
 While all properties are stored in the elastic search index of the data object, only those marked for Elastic Search indexing will be available for search queries.

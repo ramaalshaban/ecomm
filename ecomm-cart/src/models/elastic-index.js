@@ -8,6 +8,8 @@ const cartMapping = {
   items: { type: "object", enabled: false },
   lastModified: { type: "date", index: true },
   yuy: { properties: {} },
+  OI: { type: "boolean", null_value: false },
+  frf: { type: "integer", index: true },
   isActive: { type: "boolean" },
   recordVersion: { type: "integer" },
   createdAt: { type: "date" },

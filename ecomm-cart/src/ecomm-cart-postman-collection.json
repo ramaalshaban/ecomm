@@ -21,7 +21,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"cartId\": \"ID\",\n  \"items\": \"Object\",\n  \"lastModified\": \"Date\",\n  \"yuy\": \"Object\"\n}",
+          "raw": "{\n  \"cartId\": \"ID\",\n  \"items\": \"Object\",\n  \"lastModified\": \"Date\",\n  \"yuy\": \"Object\",\n  \"OI\": \"Boolean\",\n  \"frf\": \"Integer\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -87,7 +87,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"items\": \"Object\",\n  \"lastModified\": \"Date\",\n  \"yuy\": \"Object\"\n}",
+          "raw": "{\n  \"items\": \"Object\",\n  \"lastModified\": \"Date\",\n  \"yuy\": \"Object\",\n  \"OI\": \"Boolean\",\n  \"frf\": \"Integer\"\n}",
           "options": {
             "raw": {
               "language": "json"

@@ -11,6 +11,8 @@ message cart {
     repeated google.protobuf.Struct items = 3;
     google.protobuf.Timestamp lastModified = 4;
     google.protobuf.Struct yuy = 5;
+    bool OI = 6;
+    int32 frf = 7;
 }
 message cartItem {
     string id = 1;

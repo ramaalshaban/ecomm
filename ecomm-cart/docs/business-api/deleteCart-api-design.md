@@ -279,6 +279,8 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "items": "Object",
     "lastModified": "Date",
     "yuy": "Object",
+    "OI": "Boolean",
+    "frf": "Integer",
     "isActive": false,
     "recordVersion": "Integer",
     "createdAt": "Date",

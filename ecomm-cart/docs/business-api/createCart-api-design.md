@@ -46,7 +46,7 @@ REST controllers also expose the Business API as a tool in the MCP, making it ac
 
 ## API Parameters
 
-The `createCart` Business API has 5 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
+The `createCart` Business API has 7 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
 
 Business API parameters can be:
 
@@ -71,6 +71,12 @@ Business API parameters can be:
 | **Description:** | Last time the cart was modified (any change to items).                                                     |          |         |           |                |
 |                  |                                                                                                            |          |         |           |                |
 | `yuy`            | `Object`                                                                                                   | `Yes`    | `-`     | `body`    | `yuy`          |
+| **Description:** | -                                                                                                          |          |         |           |                |
+|                  |                                                                                                            |          |         |           |                |
+| `OI`             | `Boolean`                                                                                                  | `Yes`    | `-`     | `body`    | `OI`           |
+| **Description:** | -                                                                                                          |          |         |           |                |
+|                  |                                                                                                            |          |         |           |                |
+| `frf`            | `Integer`                                                                                                  | `Yes`    | `-`     | `body`    | `frf`          |
 | **Description:** | -                                                                                                          |          |         |           |                |
 |                  |                                                                                                            |          |         |           |                |
 
@@ -120,6 +126,8 @@ The business api will use the following data clause. Note that any calculated va
   items: this.items ? (typeof this.items == 'string' ? JSON.parse(this.items) : this.items) : null,
   lastModified: this.lastModified,
   yuy: this.yuy ? (typeof this.yuy == 'string' ? JSON.parse(this.yuy) : this.yuy) : null,
+  OI: this.OI,
+  frf: this.frf,
   isActive: true,
 }
 ```
@@ -205,12 +213,14 @@ Manager triggers API-level events (Kafka, WebSocket, async workflows) as the fin
 Client parameters are the api parameters that are visible to client and will be populated by the client.
 Note that some api parameters are not visible to client because they are populated by internal system, session, calculation or joint sources.
 
-The `createCart` api has got 2 client parameters
+The `createCart` api has got 4 client parameters
 
-| Parameter | Type   | Required | Population          |
-| --------- | ------ | -------- | ------------------- |
-| items     | Object | true     | request.body?.items |
-| yuy       | Object | true     | request.body?.yuy   |
+| Parameter | Type    | Required | Population          |
+| --------- | ------- | -------- | ------------------- |
+| items     | Object  | true     | request.body?.items |
+| yuy       | Object  | true     | request.body?.yuy   |
+| OI        | Boolean | true     | request.body?.OI    |
+| frf       | Integer | true     | request.body?.frf   |
 
 ### REST Request
 
@@ -223,6 +233,8 @@ axios({
   data: {
     items: "Object",
     yuy: "Object",
+    OI: "Boolean",
+    frf: "Integer",
   },
   params: {},
 });
@@ -257,6 +269,8 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "items": "Object",
     "lastModified": "Date",
     "yuy": "Object",
+    "OI": "Boolean",
+    "frf": "Integer",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",

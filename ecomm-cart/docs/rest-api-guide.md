@@ -214,7 +214,9 @@ _Cart Resource Properties_
 | **userId** | ID | | | _User that owns the cart._ |
 | **items** | Object | | | _List of items (cartItem) in the cart. Each represents a product selection at time of add._ |
 | **lastModified** | Date | | | _Last time the cart was modified (any change to items)._ |
-| **yuy** | Object | | | \*\* |
+| **yuy** | Object | | | ** |
+| **OI** | Boolean | | | ** |
+| **frf** | Integer | | | \*\* |
 
 ### CartItem resource
 
@@ -253,12 +255,14 @@ _Default access route_ : _POST_ `/v1/carts`
 
 #### Parameters
 
-The createCart api has got 2 parameters
+The createCart api has got 4 parameters
 
-| Parameter | Type   | Required | Population          |
-| --------- | ------ | -------- | ------------------- |
-| items     | Object | true     | request.body?.items |
-| yuy       | Object | true     | request.body?.yuy   |
+| Parameter | Type    | Required | Population          |
+| --------- | ------- | -------- | ------------------- |
+| items     | Object  | true     | request.body?.items |
+| yuy       | Object  | true     | request.body?.yuy   |
+| OI        | Boolean | true     | request.body?.OI    |
+| frf       | Integer | true     | request.body?.frf   |
 
 To access the api you can use the **REST** controller with the path **POST /v1/carts**
 
@@ -269,6 +273,8 @@ axios({
   data: {
     items: "Object",
     yuy: "Object",
+    OI: "Boolean",
+    frf: "Integer",
   },
   params: {},
 });
@@ -301,6 +307,8 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "items": "Object",
     "lastModified": "Date",
     "yuy": "Object",
+    "OI": "Boolean",
+    "frf": "Integer",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -365,6 +373,8 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "items": "Object",
     "lastModified": "Date",
     "yuy": "Object",
+    "OI": "Boolean",
+    "frf": "Integer",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -385,13 +395,15 @@ _Default access route_ : _PATCH_ `/v1/carts/:cartId`
 
 #### Parameters
 
-The updateCart api has got 3 parameters
+The updateCart api has got 5 parameters
 
-| Parameter | Type   | Required | Population             |
-| --------- | ------ | -------- | ---------------------- |
-| cartId    | ID     | true     | request.params?.cartId |
-| items     | Object | false    | request.body?.items    |
-| yuy       | Object | false    | request.body?.yuy      |
+| Parameter | Type    | Required | Population             |
+| --------- | ------- | -------- | ---------------------- |
+| cartId    | ID      | true     | request.params?.cartId |
+| items     | Object  | false    | request.body?.items    |
+| yuy       | Object  | false    | request.body?.yuy      |
+| OI        | Boolean | false    | request.body?.OI       |
+| frf       | Integer | false    | request.body?.frf      |
 
 To access the api you can use the **REST** controller with the path **PATCH /v1/carts/:cartId**
 
@@ -402,6 +414,8 @@ axios({
   data: {
     items: "Object",
     yuy: "Object",
+    OI: "Boolean",
+    frf: "Integer",
   },
   params: {},
 });
@@ -434,6 +448,8 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "items": "Object",
     "lastModified": "Date",
     "yuy": "Object",
+    "OI": "Boolean",
+    "frf": "Integer",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -498,6 +514,8 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "items": "Object",
     "lastModified": "Date",
     "yuy": "Object",
+    "OI": "Boolean",
+    "frf": "Integer",
     "isActive": false,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -557,6 +575,8 @@ Following JSON represents the most comprehensive form of the **`carts`** object 
       "items": "Object",
       "lastModified": "Date",
       "yuy": "Object",
+      "OI": "Boolean",
+      "frf": "Integer",
       "isActive": true,
       "recordVersion": "Integer",
       "createdAt": "Date",

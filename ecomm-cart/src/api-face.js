@@ -51,6 +51,16 @@ module.exports = (app) => {
               name: "yuy",
               type: "Object",
             },
+
+            {
+              name: "OI",
+              type: "Boolean",
+            },
+
+            {
+              name: "frf",
+              type: "Integer",
+            },
           ],
         },
         endpoints: [
@@ -66,6 +76,8 @@ module.exports = (app) => {
               content: {
                 items: "Object",
                 yuy: "Object",
+                OI: "Boolean",
+                frf: "Integer",
               },
             },
 
@@ -102,6 +114,8 @@ module.exports = (app) => {
               content: {
                 items: "Object",
                 yuy: "Object",
+                OI: "Boolean",
+                frf: "Integer",
               },
             },
 

@@ -38,6 +38,8 @@ class ListCartsMcpController extends CartMcpController {
                 "Last time the cart was modified (any change to items).",
               ),
             yuy: z.object().describe("null"),
+            OI: z.boolean().describe("null"),
+            frf: z.number().int().describe("null"),
             isActive: z
               .boolean()
               .describe(

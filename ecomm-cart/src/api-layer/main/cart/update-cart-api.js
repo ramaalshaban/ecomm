@@ -36,6 +36,8 @@ class UpdateCartManager extends CartManager {
     jsonObj.items = this.items;
     jsonObj.lastModified = this.lastModified;
     jsonObj.yuy = this.yuy;
+    jsonObj.OI = this.OI;
+    jsonObj.frf = this.frf;
   }
 
   async checkBasicAuth() {
@@ -47,6 +49,8 @@ class UpdateCartManager extends CartManager {
     this.items = request.body?.items;
     this.lastModified = request.body?.lastModified;
     this.yuy = request.body?.yuy;
+    this.OI = request.body?.OI;
+    this.frf = request.body?.frf;
     this.requestData = request.body;
     this.queryData = request.query ?? {};
     const url = request.url;
@@ -58,6 +62,8 @@ class UpdateCartManager extends CartManager {
     this.items = request.mcpParams.items;
     this.lastModified = request.mcpParams.lastModified;
     this.yuy = request.mcpParams.yuy;
+    this.OI = request.mcpParams.OI;
+    this.frf = request.mcpParams.frf;
     this.requestData = request.mcpParams;
   }
 
@@ -96,6 +102,8 @@ class UpdateCartManager extends CartManager {
           ? JSON.parse(this.yuy)
           : this.yuy
         : null,
+      OI: this.OI,
+      frf: this.frf,
     };
 
     dataClause.lastModified = LIB.nowISO();
@@ -201,12 +209,61 @@ class UpdateCartManager extends CartManager {
     }
   }
 
+  checkParameterType_OI(paramValue) {
+    const isBoolean = (n) => !!n === n;
+    if (!isBoolean(paramValue)) {
+      throw new BadRequestError("errMsg_OIisNotAValidBoolean");
+    }
+
+    return true;
+  }
+
+  checkParameter_OI() {
+    if (this.OI == null) return;
+
+    if (Array.isArray(this.OI)) {
+      throw new BadRequestError("errMsg_OIMustNotBeAnArray");
+    }
+
+    // Parameter Type: Boolean
+
+    if (!this.checkParameterType_OI(this.OI)) {
+      throw new BadRequestError("errMsg_OITypeIsNotValid");
+    }
+  }
+
+  checkParameterType_frf(paramValue) {
+    if (isNaN(paramValue)) {
+      return false;
+    }
+
+    return true;
+  }
+
+  checkParameter_frf() {
+    if (this.frf == null) return;
+
+    if (Array.isArray(this.frf)) {
+      throw new BadRequestError("errMsg_frfMustNotBeAnArray");
+    }
+
+    // Parameter Type: Integer
+
+    if (!this.checkParameterType_frf(this.frf)) {
+      throw new BadRequestError("errMsg_frfTypeIsNotValid");
+    }
+  }
+
   checkParameters() {
     if (this.cartId) this.checkParameter_cartId();
 
     if (this.items) this.checkParameter_items();
 
     if (this.yuy) this.checkParameter_yuy();
+
+    if (this.OI) this.checkParameter_OI();
+
+    if (this.frf) this.checkParameter_frf();
   }
 
   setOwnership() {

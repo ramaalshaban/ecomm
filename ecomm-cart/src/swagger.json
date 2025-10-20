@@ -12,7 +12,7 @@
         "tags": [
           "cart"
         ],
-        "summary": "The createCart API has 2 parameters.",
+        "summary": "The createCart API has 4 parameters.",
         "description": "This operation requires session parameters: userId (ID, required).",
         "requestBody": {
           "description": "",
@@ -411,7 +411,7 @@
         "tags": [
           "cart"
         ],
-        "summary": "The updateCart API has 3 parameters.",
+        "summary": "The updateCart API has 5 parameters.",
         "description": "updateCart",
         "parameters": [
           {
@@ -725,6 +725,14 @@
           "yuy": {
             "type": "object",
             "nullable": false
+          },
+          "OI": {
+            "type": "string",
+            "nullable": false
+          },
+          "frf": {
+            "type": "string",
+            "nullable": false
           }
         },
         "additionalProperties": false
@@ -748,6 +756,14 @@
           },
           "yuy": {
             "type": "object",
+            "nullable": true
+          },
+          "OI": {
+            "type": "string",
+            "nullable": true
+          },
+          "frf": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -1048,6 +1064,12 @@
           "yuy": {
             "type": "object"
           },
+          "OI": {
+            "type": "string"
+          },
+          "frf": {
+            "type": "string"
+          },
           "isActive": {
             "type": "boolean"
           },
@@ -1085,6 +1107,12 @@
           },
           "yuy": {
             "type": "object"
+          },
+          "OI": {
+            "type": "string"
+          },
+          "frf": {
+            "type": "string"
           },
           "isActive": {
             "type": "boolean"
