@@ -251,6 +251,35 @@ class HexaAuth {
     return token;
   }
 
+  async createAdminBucketToken(session) {
+    const bucketPayload = {
+      buckets: [
+        {
+          bucketId: `${this.projectCodename}-public-common-bucket`,
+          bucketName: `${this.projectCodename}-public-common-bucket`,
+          action: ["write"],
+          isPublic: true,
+          expires: "30d",
+        },
+        {
+          bucketId: `${this.projectCodename}-private-common-bucket`,
+          bucketName: `${this.projectCodename}-private-common-bucket`,
+          action: ["write"],
+          isPublic: false,
+          expires: "30d",
+        },
+      ],
+    };
+
+    const token = await createJWT(
+      bucketPayload,
+      process.env.PROJECT_TOKEN_KEY ?? "bucket.token.key",
+      "30d",
+    );
+    console.log("Bucket token created for userId", session._USERID);
+    return token;
+  }
+
   async createTokenFromSession(session, isTest) {
     const tokenMark = this.projectCodename + "-inapp-token";
 

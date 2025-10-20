@@ -297,6 +297,19 @@ class RegisterUserManager extends UserManager {
     }
   }
 
+  async afterBuildOutput() {
+    try {
+      await this.writeVerificationNeedsToResponse();
+    } catch (err) {
+      console.log(
+        "writeVerificationNeedsToResponse Action Error:",
+        err.message,
+      );
+      //**errorLog
+      throw err;
+    }
+  }
+
   // Action Store
 
   /***********************************************************************
@@ -330,6 +343,22 @@ class RegisterUserManager extends UserManager {
       return true;
     } catch (error) {
       console.error("AddToContextAction error:", error);
+      throw error;
+    }
+  }
+
+  /***********************************************************************
+   ** Set if email or mobile verification needed
+   ***********************************************************************/
+  async writeVerificationNeedsToResponse() {
+    try {
+      this.output["emailVerificationNeeded"] = !this.emailVerified;
+
+      this.output["mobileVerificationNeeded"] = false;
+
+      return true;
+    } catch (error) {
+      console.error("AddToResponseAction error:", error);
       throw error;
     }
   }

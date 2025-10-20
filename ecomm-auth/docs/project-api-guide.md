@@ -108,6 +108,91 @@ Each error response is structured to provide meaningful insight into the problem
 Here’s a **refined and restructured version** of your document — with a clean hierarchy, consistent heading levels, and standardized formatting for professional API documentation.
 All repeated behavioral sections were grouped under unified “Behavioral Notes” subsections to reduce redundancy.
 
+## Registration Management
+
+First of all please ensure that register and login pages do have a deployemnt server selection option, so as the frontned coding agent you can arrange the base url path of all services.
+
+Start with a landing page and arranging register, verification and login flow. So at the first step, you need a general knowledge of the application to make a good landing page and the authetication flow.
+
+### How To Register
+
+Using `registeruser` route of auth api, send the required fields to the backend in your registration page.
+
+The registerUser api is described with request and response structure below.
+
+After a successful registration, frontend code should handle the verification needs. The registration response will have a `user` object in the root envelope, this object will have user information with an `id` parameter.
+
+**Email Verification**
+In the registration response, you should check the property `emailVerificationNeeded` in the reponse root, and if this property is true you should start the email verification flow.
+
+1. Call the email verification `start` route of the backend (described below) with the user email, backend will send a secret code to the given email adresss.
+2. The secret code in the sent email message will be an hexadecimal string , and you should arrange an input page so that the user can paste this code to the frontend application. Please navigate to this input page after you start the verification process.
+3. When the user submits the code, please complete the email verification using the `complete` route of the backend (described below) with the user email and the secret code.
+4. After you get a successful response from email verification, you can navigate to the login page.
+
+## Bucket Management
+
+This application has a bucket service and is used to store user or other objects related files. Bucket service is login agnostic, so when accessing for write or private read, you should insert a bucket token (given by services) to your request authorization header as bearer token.
+
+**User Bucket**
+This bucket is used to store public user files for each user.
+
+When a user logs in, or in /currentuser response there is `userBucketToken` to be used when sending user related public files to the bucket service.
+
+To upload
+
+`POST {baseUrl}/buxet/upload`
+
+Request body is form data which includes the bucketId and the file as binary in `files` property.
+
+```js
+{
+    bucketId: "{userId}-public-user-bucket",
+    files: {binary}
+}
+```
+
+Response status is 200 on succesfull result, eg body:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "fileId": "9da03f6d-0409-41ad-bb06-225a244ae408",
+      "originalName": "test (10).png",
+      "mimeType": "image/png",
+      "size": 604063,
+      "status": "uploaded",
+      "bucketName": "f7103b85-fcda-4dec-92c6-c336f71fd3a2-public-user-bucket",
+      "isPublic": true,
+      "downloadUrl": "https://babilcom.mindbricks.co/bucket/download/9da03f6d-0409-41ad-bb06-225a244ae408"
+    }
+  ]
+}
+```
+
+To download a file from the bucket, you should know its fileId, so if youupload an avatar or something else, be sure that the download url or the fileId is stored in backend.
+
+Bucket is mostly used, in object creations where alos demands an addtional file like a product image or user avatar. So after you upload your image to the bucket, insert the returned download url to the related property in the related object creation.
+
+**Application Bucket**
+
+This Ecomm application alos has common public bucket which everybody has a read access, but only users who have `superAdmin`, `admin` or `saasAdmin` roles can write (upload) to the bucket.
+
+The common public project bucket id is
+
+`"ecomm-public-common-bucket"`
+
+and in certain areas like product image uploads, since the user will already have the admin bucket token, he will be able to upload realted object images.
+
+Please make your UI arrangements as able to upload files to the bucket using these bucket tokens.
+
+**Object Buckets**
+Some objects may return also a bucket token, to upload or access related files with object. For example, when you get a project's data in a project management application, if there is a public or private bucket token, this is provided mostly for uploading project related files or downloading them with the token.
+
+These buckets will be used according to the descriptions given along with the object definitions.
+
 ## 1. Authentication Routes
 
 ### 1.1 `POST /login` — User Login
@@ -1781,6 +1866,8 @@ Describes a product added to a cart with snapshot of its state at time of add—
 
 **Ko**
 
+**Bvf**
+
 ### Cart Service Access urls
 
 This service is accessible via the following environment-specific URLs:
@@ -1799,15 +1886,21 @@ The `createCart` API REST controller can be triggered via the following route:
 
 **Rest Request Parameters**
 
-The `createCart` api has got 2 request parameters
+The `createCart` api has got 5 request parameters
 
-| Parameter | Type   | Required | Population          |
-| --------- | ------ | -------- | ------------------- |
-| items     | Object | true     | request.body?.items |
-| yuy       | Object | true     | request.body?.yuy   |
+| Parameter | Type    | Required | Population          |
+| --------- | ------- | -------- | ------------------- |
+| items     | Object  | true     | request.body?.items |
+| yuy       | Object  | true     | request.body?.yuy   |
+| OI        | Boolean | true     | request.body?.OI    |
+| frf       | Integer | true     | request.body?.frf   |
+| vrg       | Boolean | true     | request.body?.vrg   |
 
 **items** : List of items (cartItem) in the cart. Each represents a product selection at time of add.
 **yuy** :
+**OI** :
+**frf** :
+**vrg** :
 
 **REST Request**
 To access the api you can use the **REST** controller with the path **POST /v1/carts**
@@ -1819,6 +1912,9 @@ axios({
   data: {
     items: "Object",
     yuy: "Object",
+    OI: "Boolean",
+    frf: "Integer",
+    vrg: "Boolean",
   },
   params: {},
 });
@@ -1849,6 +1945,9 @@ axios({
     "items": "Object",
     "lastModified": "Date",
     "yuy": "Object",
+    "OI": "Boolean",
+    "frf": "Integer",
+    "vrg": "Boolean",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -1912,6 +2011,9 @@ axios({
     "items": "Object",
     "lastModified": "Date",
     "yuy": "Object",
+    "OI": "Boolean",
+    "frf": "Integer",
+    "vrg": "Boolean",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -1930,17 +2032,23 @@ The `updateCart` API REST controller can be triggered via the following route:
 
 **Rest Request Parameters**
 
-The `updateCart` api has got 3 request parameters
+The `updateCart` api has got 6 request parameters
 
-| Parameter | Type   | Required | Population             |
-| --------- | ------ | -------- | ---------------------- |
-| cartId    | ID     | true     | request.params?.cartId |
-| items     | Object | false    | request.body?.items    |
-| yuy       | Object | false    | request.body?.yuy      |
+| Parameter | Type    | Required | Population             |
+| --------- | ------- | -------- | ---------------------- |
+| cartId    | ID      | true     | request.params?.cartId |
+| items     | Object  | false    | request.body?.items    |
+| yuy       | Object  | false    | request.body?.yuy      |
+| OI        | Boolean | false    | request.body?.OI       |
+| frf       | Integer | false    | request.body?.frf      |
+| vrg       | Boolean |          | request.body?.vrg      |
 
 **cartId** : This id paremeter is used to select the required data object that will be updated
 **items** : List of items (cartItem) in the cart. Each represents a product selection at time of add.
 **yuy** :
+**OI** :
+**frf** :
+**vrg** :
 
 **REST Request**
 To access the api you can use the **REST** controller with the path **PATCH /v1/carts/:cartId**
@@ -1952,6 +2060,9 @@ axios({
   data: {
     items: "Object",
     yuy: "Object",
+    OI: "Boolean",
+    frf: "Integer",
+    vrg: "Boolean",
   },
   params: {},
 });
@@ -1982,6 +2093,9 @@ axios({
     "items": "Object",
     "lastModified": "Date",
     "yuy": "Object",
+    "OI": "Boolean",
+    "frf": "Integer",
+    "vrg": "Boolean",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -2045,6 +2159,9 @@ axios({
     "items": "Object",
     "lastModified": "Date",
     "yuy": "Object",
+    "OI": "Boolean",
+    "frf": "Integer",
+    "vrg": "Boolean",
     "isActive": false,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -2102,6 +2219,9 @@ axios({
       "items": "Object",
       "lastModified": "Date",
       "yuy": "Object",
+      "OI": "Boolean",
+      "frf": "Integer",
+      "vrg": "Boolean",
       "isActive": true,
       "recordVersion": "Integer",
       "createdAt": "Date",

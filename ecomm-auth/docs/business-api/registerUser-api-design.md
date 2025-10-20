@@ -282,13 +282,38 @@ Manager shapes the response: masks sensitive fields, resolves linked references,
 
 ---
 
-### [11] Step : sendResponse
+### [11] Action : writeVerificationNeedsToResponse
+
+**Action Type**: `AddToResponseAction`
+
+Set if email or mobile verification needed
+
+```js
+class Api {
+  async writeVerificationNeedsToResponse() {
+    try {
+      this.output["emailVerificationNeeded"] = !this.emailVerified;
+
+      this.output["mobileVerificationNeeded"] = false;
+
+      return true;
+    } catch (error) {
+      console.error("AddToResponseAction error:", error);
+      throw error;
+    }
+  }
+}
+```
+
+---
+
+### [12] Step : sendResponse
 
 Manager sends the response to the client and finalizes internal tasks like flushing logs or updating session state.
 
 ---
 
-### [12] Step : raiseApiEvent
+### [13] Step : raiseApiEvent
 
 Manager triggers API-level events (Kafka, WebSocket, async workflows) as the final internal step.
 

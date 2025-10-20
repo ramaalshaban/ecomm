@@ -157,6 +157,10 @@ class EcommLoginSession extends EcommSession {
     session.checkTokenMark = "ecomm-inapp-token";
     session._USERID = session.userId;
     session.userBucketToken = await this.createBucketToken(session);
+    if (["superAdmin", "saasAdmin", "admin"].includes(session.roleId)) {
+      session.projectBucketToken = await this.createAdminBucketToken(session);
+    }
+
     await this.setSessionToEntityCache(session);
 
     req.session = session;
