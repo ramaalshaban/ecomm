@@ -39,6 +39,7 @@ class UpdateCartManager extends CartManager {
     jsonObj.OI = this.OI;
     jsonObj.frf = this.frf;
     jsonObj.vrg = this.vrg;
+    jsonObj.ff = this.ff;
   }
 
   async checkBasicAuth() {
@@ -53,6 +54,7 @@ class UpdateCartManager extends CartManager {
     this.OI = request.body?.OI;
     this.frf = request.body?.frf;
     this.vrg = request.body?.vrg;
+    this.ff = request.body?.ff;
     this.requestData = request.body;
     this.queryData = request.query ?? {};
     const url = request.url;
@@ -67,6 +69,7 @@ class UpdateCartManager extends CartManager {
     this.OI = request.mcpParams.OI;
     this.frf = request.mcpParams.frf;
     this.vrg = request.mcpParams.vrg;
+    this.ff = request.mcpParams.ff;
     this.requestData = request.mcpParams;
   }
 
@@ -108,6 +111,7 @@ class UpdateCartManager extends CartManager {
       OI: this.OI,
       frf: this.frf,
       vrg: this.vrg,
+      ff: this.ff,
     };
 
     dataClause.lastModified = LIB.nowISO();
@@ -281,6 +285,28 @@ class UpdateCartManager extends CartManager {
     }
   }
 
+  checkParameterType_ff(paramValue) {
+    if (isNaN(paramValue)) {
+      return false;
+    }
+
+    return true;
+  }
+
+  checkParameter_ff() {
+    if (this.ff == null) return;
+
+    if (Array.isArray(this.ff)) {
+      throw new BadRequestError("errMsg_ffMustNotBeAnArray");
+    }
+
+    // Parameter Type: Integer
+
+    if (!this.checkParameterType_ff(this.ff)) {
+      throw new BadRequestError("errMsg_ffTypeIsNotValid");
+    }
+  }
+
   checkParameters() {
     if (this.cartId) this.checkParameter_cartId();
 
@@ -293,6 +319,8 @@ class UpdateCartManager extends CartManager {
     if (this.frf) this.checkParameter_frf();
 
     if (this.vrg) this.checkParameter_vrg();
+
+    if (this.ff) this.checkParameter_ff();
   }
 
   setOwnership() {

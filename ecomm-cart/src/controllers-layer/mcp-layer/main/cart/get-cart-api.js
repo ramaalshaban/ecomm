@@ -41,6 +41,7 @@ class GetCartMcpController extends CartMcpController {
             OI: z.boolean().describe("null"),
             frf: z.number().int().describe("null"),
             vrg: z.boolean().describe("undefined"),
+            ff: z.number().int().describe("null"),
             isActive: z
               .boolean()
               .describe(

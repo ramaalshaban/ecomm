@@ -284,6 +284,7 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "OI": "Boolean",
     "frf": "Integer",
     "vrg": "Boolean",
+    "ff": "Integer",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",

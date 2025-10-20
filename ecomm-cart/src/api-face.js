@@ -66,6 +66,11 @@ module.exports = (app) => {
               name: "vrg",
               type: "Boolean",
             },
+
+            {
+              name: "ff",
+              type: "Integer",
+            },
           ],
         },
         endpoints: [
@@ -84,6 +89,7 @@ module.exports = (app) => {
                 OI: "Boolean",
                 frf: "Integer",
                 vrg: "Boolean",
+                ff: "Integer",
               },
             },
 
@@ -123,6 +129,7 @@ module.exports = (app) => {
                 OI: "Boolean",
                 frf: "Integer",
                 vrg: "Boolean",
+                ff: "Integer",
               },
             },
 

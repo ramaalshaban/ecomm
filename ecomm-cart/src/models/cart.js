@@ -51,6 +51,12 @@ const Cart = sequelize.define(
       allowNull: false,
       defaultValue: false,
     },
+    ff: {
+      //
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
     isActive: {
       // isActive property will be set to false when deleted
       // so that the document will be archived

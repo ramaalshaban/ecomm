@@ -19,6 +19,7 @@ const validateData = (data) => {
     "OI",
     "frf",
     "vrg",
+    "ff",
   ];
 
   requiredFields.forEach((field) => {

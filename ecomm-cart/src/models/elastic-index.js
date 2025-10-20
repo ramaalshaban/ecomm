@@ -11,6 +11,7 @@ const cartMapping = {
   OI: { type: "boolean", null_value: false },
   frf: { type: "integer", index: true },
   vrg: { type: "boolean", null_value: false },
+  ff: { type: "integer", index: true },
   isActive: { type: "boolean" },
   recordVersion: { type: "integer" },
   createdAt: { type: "date" },

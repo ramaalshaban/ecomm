@@ -1,7 +1,7 @@
 # Service Design Specification
 
 **ecomm-cart-service** documentation
--Version:**`1.0.10`**
+-Version:**`1.0.11`**
 
 ## Scope
 
@@ -102,6 +102,7 @@ The existing record will be updated with the new data.No error will be thrown.
 | `OI`           | Boolean | Yes      | -                                                                                         |
 | `frf`          | Integer | Yes      | -                                                                                         |
 | `vrg`          | Boolean | Yes      | -                                                                                         |
+| `ff`           | Integer | Yes      | -                                                                                         |
 
 - Required properties are mandatory for creating objects and must be provided in the request body if no default value is set.
 
@@ -124,6 +125,7 @@ Since default values are applied on db level, they should be literal values, not
 - **OI**: false
 - **frf**: 0
 - **vrg**: false
+- **ff**: 0
 
 ### Constant Properties
 
@@ -134,7 +136,7 @@ A property is set to be constant if the `Allow Update` option is set to `false`.
 
 ### Auto Update Properties
 
-`userId` `items` `lastModified` `yuy` `OI` `frf` `vrg`
+`userId` `items` `lastModified` `yuy` `OI` `frf` `vrg` `ff`
 
 An update crud API created with the option `Auto Params` enabled will automatically update these properties with the provided values in the request body.
 If you want to update any property in your own business logic not by user input, you can set the `Allow Auto Update` option to false.
@@ -142,7 +144,7 @@ These properties will be added to the update API's body parameters and can be up
 
 ### Elastic Search Indexing
 
-`userId` `lastModified` `yuy` `OI` `frf` `vrg`
+`userId` `lastModified` `yuy` `OI` `frf` `vrg` `ff`
 
 Properties that are indexed in Elastic Search will be searchable via the Elastic Search API.
 While all properties are stored in the elastic search index of the data object, only those marked for Elastic Search indexing will be available for search queries.

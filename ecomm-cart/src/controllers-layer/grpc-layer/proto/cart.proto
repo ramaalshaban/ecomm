@@ -14,6 +14,7 @@ message cart {
     bool OI = 6;
     int32 frf = 7;
     bool vrg = 8;
+    int32 ff = 9;
 }
 message cartItem {
     string id = 1;
