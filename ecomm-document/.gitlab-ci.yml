@@ -1,0 +1,15 @@
+
+  stages:
+    - deploy
+  
+  build-and-deploy-server:
+    stage: deploy
+    image: docker:stable
+    services:
+      - docker:dind
+    script:
+      - sudo bash -c "docker build -f Dockerfile -t ecomm-document:latest ."
+      - sudo bash -c 'cd undefined/ecomm/  && docker compose up -d ecomm-documnet'
+    only:
+      - main
+  
