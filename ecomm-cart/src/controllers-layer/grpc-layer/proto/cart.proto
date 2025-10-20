@@ -1,0 +1,54 @@
+
+syntax = "proto3";
+
+package cart;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+message cart {
+    string id = 1;
+    string userId = 2;
+    repeated google.protobuf.Struct items = 3;
+    google.protobuf.Timestamp lastModified = 4;
+    google.protobuf.Struct yuy = 5;
+}
+message cartItem {
+    string id = 1;
+    string productId = 2;
+    string productName = 3;
+    int32 priceAtAdd = 4;
+    int32 quantity = 5;
+    string image = 6;
+    google.protobuf.Struct attributes = 7;
+}
+message ko {
+    string id = 1;
+}
+message bvf {
+    string id = 1;
+}
+
+
+
+
+message VoidRequest {}
+
+message CurrentUserReply {
+    string userId = 1;
+    string sessionId = 2;
+    string fullname = 3;
+    string email = 4;
+    string roleId = 5;
+    string avatar = 6;
+    bool emailVerified = 7;
+        string accessToken = 8;
+}
+
+message HelloMessageReply {
+    string hello = 1;
+}
+
+service cartService {
+    rpc currentUser(VoidRequest) returns (CurrentUserReply);
+    rpc helloMessage(VoidRequest) returns (HelloMessageReply);
+}
