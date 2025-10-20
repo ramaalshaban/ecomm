@@ -1,0 +1,15 @@
+module.exports = {
+  createUserNotificationPreferences: require("./createUserNotificationPreferences"),
+  getIdListOfUserNotificationPreferencesByField: require("./getIdListOfUserNotificationPreferencesByField"),
+  getUserNotificationPreferencesById: require("./getUserNotificationPreferencesById"),
+  getUserNotificationPreferencesAggById: require("./getUserNotificationPreferencesAggById"),
+  getUserNotificationPreferencesListByQuery: require("./getUserNotificationPreferencesListByQuery"),
+  getUserNotificationPreferencesStatsByQuery: require("./getUserNotificationPreferencesStatsByQuery"),
+  getUserNotificationPreferencesByQuery: require("./getUserNotificationPreferencesByQuery"),
+  updateUserNotificationPreferencesById: require("./updateUserNotificationPreferencesById"),
+  updateUserNotificationPreferencesByIdList: require("./updateUserNotificationPreferencesByIdList"),
+  updateUserNotificationPreferencesByQuery: require("./updateUserNotificationPreferencesByQuery"),
+  deleteUserNotificationPreferencesById: require("./deleteUserNotificationPreferencesById"),
+  deleteUserNotificationPreferencesByQuery: require("./deleteUserNotificationPreferencesByQuery"),
+  getUserNotificationPreferencesByUserId: require("./getUserNotificationPreferencesByUserId"),
+};

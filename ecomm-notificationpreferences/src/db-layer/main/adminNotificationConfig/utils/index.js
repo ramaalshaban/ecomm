@@ -1,0 +1,15 @@
+module.exports = {
+  createAdminNotificationConfig: require("./createAdminNotificationConfig"),
+  getIdListOfAdminNotificationConfigByField: require("./getIdListOfAdminNotificationConfigByField"),
+  getAdminNotificationConfigById: require("./getAdminNotificationConfigById"),
+  getAdminNotificationConfigAggById: require("./getAdminNotificationConfigAggById"),
+  getAdminNotificationConfigListByQuery: require("./getAdminNotificationConfigListByQuery"),
+  getAdminNotificationConfigStatsByQuery: require("./getAdminNotificationConfigStatsByQuery"),
+  getAdminNotificationConfigByQuery: require("./getAdminNotificationConfigByQuery"),
+  updateAdminNotificationConfigById: require("./updateAdminNotificationConfigById"),
+  updateAdminNotificationConfigByIdList: require("./updateAdminNotificationConfigByIdList"),
+  updateAdminNotificationConfigByQuery: require("./updateAdminNotificationConfigByQuery"),
+  deleteAdminNotificationConfigById: require("./deleteAdminNotificationConfigById"),
+  deleteAdminNotificationConfigByQuery: require("./deleteAdminNotificationConfigByQuery"),
+  getAdminNotificationConfigByAdminId: require("./getAdminNotificationConfigByAdminId"),
+};

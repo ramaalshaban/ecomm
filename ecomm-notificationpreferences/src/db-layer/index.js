@@ -1,0 +1,75 @@
+const mainFunctions = require("./main");
+
+module.exports = {
+  // main Database
+  createUserNotificationPreferences:
+    mainFunctions.createUserNotificationPreferences,
+  getIdListOfUserNotificationPreferencesByField:
+    mainFunctions.getIdListOfUserNotificationPreferencesByField,
+  getUserNotificationPreferencesById:
+    mainFunctions.getUserNotificationPreferencesById,
+  getUserNotificationPreferencesAggById:
+    mainFunctions.getUserNotificationPreferencesAggById,
+  getUserNotificationPreferencesListByQuery:
+    mainFunctions.getUserNotificationPreferencesListByQuery,
+  getUserNotificationPreferencesStatsByQuery:
+    mainFunctions.getUserNotificationPreferencesStatsByQuery,
+  getUserNotificationPreferencesByQuery:
+    mainFunctions.getUserNotificationPreferencesByQuery,
+  updateUserNotificationPreferencesById:
+    mainFunctions.updateUserNotificationPreferencesById,
+  updateUserNotificationPreferencesByIdList:
+    mainFunctions.updateUserNotificationPreferencesByIdList,
+  updateUserNotificationPreferencesByQuery:
+    mainFunctions.updateUserNotificationPreferencesByQuery,
+  deleteUserNotificationPreferencesById:
+    mainFunctions.deleteUserNotificationPreferencesById,
+  deleteUserNotificationPreferencesByQuery:
+    mainFunctions.deleteUserNotificationPreferencesByQuery,
+  getUserNotificationPreferencesByUserId:
+    mainFunctions.getUserNotificationPreferencesByUserId,
+  dbScriptCreateUsernotificationpreferences:
+    mainFunctions.dbScriptCreateUsernotificationpreferences,
+  dbScriptGetUsernotificationpreferences:
+    mainFunctions.dbScriptGetUsernotificationpreferences,
+  dbScriptUpdateUsernotificationpreferences:
+    mainFunctions.dbScriptUpdateUsernotificationpreferences,
+  dbScriptDeleteUsernotificationpreferences:
+    mainFunctions.dbScriptDeleteUsernotificationpreferences,
+  dbScriptListUsernotificationpreferences:
+    mainFunctions.dbScriptListUsernotificationpreferences,
+  createAdminNotificationConfig: mainFunctions.createAdminNotificationConfig,
+  getIdListOfAdminNotificationConfigByField:
+    mainFunctions.getIdListOfAdminNotificationConfigByField,
+  getAdminNotificationConfigById: mainFunctions.getAdminNotificationConfigById,
+  getAdminNotificationConfigAggById:
+    mainFunctions.getAdminNotificationConfigAggById,
+  getAdminNotificationConfigListByQuery:
+    mainFunctions.getAdminNotificationConfigListByQuery,
+  getAdminNotificationConfigStatsByQuery:
+    mainFunctions.getAdminNotificationConfigStatsByQuery,
+  getAdminNotificationConfigByQuery:
+    mainFunctions.getAdminNotificationConfigByQuery,
+  updateAdminNotificationConfigById:
+    mainFunctions.updateAdminNotificationConfigById,
+  updateAdminNotificationConfigByIdList:
+    mainFunctions.updateAdminNotificationConfigByIdList,
+  updateAdminNotificationConfigByQuery:
+    mainFunctions.updateAdminNotificationConfigByQuery,
+  deleteAdminNotificationConfigById:
+    mainFunctions.deleteAdminNotificationConfigById,
+  deleteAdminNotificationConfigByQuery:
+    mainFunctions.deleteAdminNotificationConfigByQuery,
+  getAdminNotificationConfigByAdminId:
+    mainFunctions.getAdminNotificationConfigByAdminId,
+  dbScriptCreateAdminnotificationconfig:
+    mainFunctions.dbScriptCreateAdminnotificationconfig,
+  dbScriptGetAdminnotificationconfig:
+    mainFunctions.dbScriptGetAdminnotificationconfig,
+  dbScriptUpdateAdminnotificationconfig:
+    mainFunctions.dbScriptUpdateAdminnotificationconfig,
+  dbScriptDeleteAdminnotificationconfig:
+    mainFunctions.dbScriptDeleteAdminnotificationconfig,
+  dbScriptListAdminnotificationconfigs:
+    mainFunctions.dbScriptListAdminnotificationconfigs,
+};

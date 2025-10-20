@@ -1,0 +1,22 @@
+module.exports = {
+  UsernotificationpreferencesCreatedTopic:
+    "ecomm-notificationpreferences-service-usernotificationpreferences-created",
+  UsernotificationpreferencesRetrivedTopic:
+    "ecomm-notificationpreferences-service-usernotificationpreferences-retrived",
+  UsernotificationpreferencesUpdatedTopic:
+    "ecomm-notificationpreferences-service-usernotificationpreferences-updated",
+  UsernotificationpreferencesDeletedTopic:
+    "ecomm-notificationpreferences-service-usernotificationpreferences-deleted",
+  UsernotificationpreferencesListedTopic:
+    "ecomm-notificationpreferences-service-usernotificationpreferences-listed",
+  AdminnotificationconfigCreatedTopic:
+    "ecomm-notificationpreferences-service-adminnotificationconfig-created",
+  AdminnotificationconfigRetrivedTopic:
+    "ecomm-notificationpreferences-service-adminnotificationconfig-retrived",
+  AdminnotificationconfigUpdatedTopic:
+    "ecomm-notificationpreferences-service-adminnotificationconfig-updated",
+  AdminnotificationconfigDeletedTopic:
+    "ecomm-notificationpreferences-service-adminnotificationconfig-deleted",
+  AdminnotificationconfigsListedTopic:
+    "ecomm-notificationpreferences-service-adminnotificationconfigs-listed",
+};

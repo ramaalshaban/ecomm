@@ -1,0 +1,330 @@
+{
+  "info": {
+    "name": "ecomm-notificationpreferences-service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "createUserNotificationPreferences",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userNotificationPreferencesId\": \"ID\",\n  \"orderUpdates\": \"Boolean\",\n  \"shippingUpdates\": \"Boolean\",\n  \"promoOptIn\": \"Boolean\",\n  \"paymentEvents\": \"Boolean\",\n  \"systemEvents\": \"Boolean\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{serviceUrl}}//v1/usernotificationpreferencess",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "usernotificationpreferencess"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getUserNotificationPreferences",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{serviceUrl}}//v1/usernotificationpreferencess/:userNotificationPreferencesId",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "usernotificationpreferencess",
+            ":userNotificationPreferencesId"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "updateUserNotificationPreferences",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"orderUpdates\": \"Boolean\",\n  \"shippingUpdates\": \"Boolean\",\n  \"promoOptIn\": \"Boolean\",\n  \"paymentEvents\": \"Boolean\",\n  \"systemEvents\": \"Boolean\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{serviceUrl}}//v1/usernotificationpreferencess/:userNotificationPreferencesId",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "usernotificationpreferencess",
+            ":userNotificationPreferencesId"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deleteUserNotificationPreferences",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{serviceUrl}}//v1/usernotificationpreferencess/:userNotificationPreferencesId",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "usernotificationpreferencess",
+            ":userNotificationPreferencesId"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "listUserNotificationPreferences",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{serviceUrl}}//v1/usernotificationpreferencess",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "usernotificationpreferencess"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "createAdminNotificationConfig",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"adminNotificationConfigId\": \"ID\",\n  \"triggerEvents\": \"String\",\n  \"notifyBy\": \"String\",\n  \"enabled\": \"Boolean\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{serviceUrl}}//v1/adminnotificationconfigs",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "adminnotificationconfigs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getAdminNotificationConfig",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{serviceUrl}}//v1/adminnotificationconfigs/:adminNotificationConfigId",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "adminnotificationconfigs",
+            ":adminNotificationConfigId"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "updateAdminNotificationConfig",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"triggerEvents\": \"String\",\n  \"notifyBy\": \"String\",\n  \"enabled\": \"Boolean\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{serviceUrl}}//v1/adminnotificationconfigs/:adminNotificationConfigId",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "adminnotificationconfigs",
+            ":adminNotificationConfigId"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deleteAdminNotificationConfig",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{serviceUrl}}//v1/adminnotificationconfigs/:adminNotificationConfigId",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "adminnotificationconfigs",
+            ":adminNotificationConfigId"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "listAdminNotificationConfigs",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{serviceUrl}}//v1/adminnotificationconfigs",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "adminnotificationconfigs"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
