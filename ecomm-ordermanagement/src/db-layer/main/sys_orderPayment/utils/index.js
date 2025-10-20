@@ -1,0 +1,15 @@
+module.exports = {
+  createSys_orderPayment: require("./createSys_orderPayment"),
+  getIdListOfSys_orderPaymentByField: require("./getIdListOfSys_orderPaymentByField"),
+  getSys_orderPaymentById: require("./getSys_orderPaymentById"),
+  getSys_orderPaymentAggById: require("./getSys_orderPaymentAggById"),
+  getSys_orderPaymentListByQuery: require("./getSys_orderPaymentListByQuery"),
+  getSys_orderPaymentStatsByQuery: require("./getSys_orderPaymentStatsByQuery"),
+  getSys_orderPaymentByQuery: require("./getSys_orderPaymentByQuery"),
+  updateSys_orderPaymentById: require("./updateSys_orderPaymentById"),
+  updateSys_orderPaymentByIdList: require("./updateSys_orderPaymentByIdList"),
+  updateSys_orderPaymentByQuery: require("./updateSys_orderPaymentByQuery"),
+  deleteSys_orderPaymentById: require("./deleteSys_orderPaymentById"),
+  deleteSys_orderPaymentByQuery: require("./deleteSys_orderPaymentByQuery"),
+  getSys_orderPaymentByOrderId: require("./getSys_orderPaymentByOrderId"),
+};

@@ -1,0 +1,16 @@
+module.exports = {
+  createSys_paymentCustomer: require("./createSys_paymentCustomer"),
+  getIdListOfSys_paymentCustomerByField: require("./getIdListOfSys_paymentCustomerByField"),
+  getSys_paymentCustomerById: require("./getSys_paymentCustomerById"),
+  getSys_paymentCustomerAggById: require("./getSys_paymentCustomerAggById"),
+  getSys_paymentCustomerListByQuery: require("./getSys_paymentCustomerListByQuery"),
+  getSys_paymentCustomerStatsByQuery: require("./getSys_paymentCustomerStatsByQuery"),
+  getSys_paymentCustomerByQuery: require("./getSys_paymentCustomerByQuery"),
+  updateSys_paymentCustomerById: require("./updateSys_paymentCustomerById"),
+  updateSys_paymentCustomerByIdList: require("./updateSys_paymentCustomerByIdList"),
+  updateSys_paymentCustomerByQuery: require("./updateSys_paymentCustomerByQuery"),
+  deleteSys_paymentCustomerById: require("./deleteSys_paymentCustomerById"),
+  deleteSys_paymentCustomerByQuery: require("./deleteSys_paymentCustomerByQuery"),
+  getSys_paymentCustomerByUserId: require("./getSys_paymentCustomerByUserId"),
+  getSys_paymentCustomerByCustomerId: require("./getSys_paymentCustomerByCustomerId"),
+};

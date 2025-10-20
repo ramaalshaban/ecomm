@@ -1,0 +1,83 @@
+
+syntax = "proto3";
+
+package orderManagement;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+message order {
+    string id = 1;
+    string userId = 2;
+    repeated google.protobuf.Struct items = 3;
+    google.protobuf.Struct shippingAddress = 4;
+    int32 totalAmount = 5;
+    string currency = 6;
+    int32 status = 7;
+    int32 paymentStatus = 8;
+    google.protobuf.Timestamp placedAt = 9;
+    string stripePaymentIntentId = 10;
+    bool refundRequested = 11;
+    int32 refundAmount = 12;
+    string adminNotes = 13;
+    repeated google.protobuf.Struct orderHistory = 14;
+}
+message orderItem {
+    string id = 1;
+    string productId = 2;
+    string productName = 3;
+    string sku = 4;
+    int32 price = 5;
+    int32 quantity = 6;
+    string image = 7;
+    google.protobuf.Struct attributes = 8;
+}
+message sys_orderPayment {
+    string id = 1;
+    string ownerId = 2;
+    string orderId = 3;
+    string paymentId = 4;
+    string paymentStatus = 5;
+    string statusLiteral = 6;
+    string redirectUrl = 7;
+}
+message sys_paymentCustomer {
+    string id = 1;
+    string userId = 2;
+    string customerId = 3;
+    string platform = 4;
+}
+message sys_paymentMethod {
+    string id = 1;
+    string paymentMethodId = 2;
+    string userId = 3;
+    string customerId = 4;
+    string cardHolderName = 5;
+    string cardHolderZip = 6;
+    string platform = 7;
+    google.protobuf.Struct cardInfo = 8;
+}
+
+
+
+
+message VoidRequest {}
+
+message CurrentUserReply {
+    string userId = 1;
+    string sessionId = 2;
+    string fullname = 3;
+    string email = 4;
+    string roleId = 5;
+    string avatar = 6;
+    bool emailVerified = 7;
+        string accessToken = 8;
+}
+
+message HelloMessageReply {
+    string hello = 1;
+}
+
+service orderManagementService {
+    rpc currentUser(VoidRequest) returns (CurrentUserReply);
+    rpc helloMessage(VoidRequest) returns (HelloMessageReply);
+}

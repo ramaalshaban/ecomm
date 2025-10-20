@@ -1,0 +1,17 @@
+module.exports = {
+  createSys_paymentMethod: require("./createSys_paymentMethod"),
+  getIdListOfSys_paymentMethodByField: require("./getIdListOfSys_paymentMethodByField"),
+  getSys_paymentMethodById: require("./getSys_paymentMethodById"),
+  getSys_paymentMethodAggById: require("./getSys_paymentMethodAggById"),
+  getSys_paymentMethodListByQuery: require("./getSys_paymentMethodListByQuery"),
+  getSys_paymentMethodStatsByQuery: require("./getSys_paymentMethodStatsByQuery"),
+  getSys_paymentMethodByQuery: require("./getSys_paymentMethodByQuery"),
+  updateSys_paymentMethodById: require("./updateSys_paymentMethodById"),
+  updateSys_paymentMethodByIdList: require("./updateSys_paymentMethodByIdList"),
+  updateSys_paymentMethodByQuery: require("./updateSys_paymentMethodByQuery"),
+  deleteSys_paymentMethodById: require("./deleteSys_paymentMethodById"),
+  deleteSys_paymentMethodByQuery: require("./deleteSys_paymentMethodByQuery"),
+  getSys_paymentMethodByPaymentMethodId: require("./getSys_paymentMethodByPaymentMethodId"),
+  getSys_paymentMethodByUserId: require("./getSys_paymentMethodByUserId"),
+  getSys_paymentMethodByCustomerId: require("./getSys_paymentMethodByCustomerId"),
+};
