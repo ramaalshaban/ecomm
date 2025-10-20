@@ -46,7 +46,7 @@ REST controllers also expose the Business API as a tool in the MCP, making it ac
 
 ## API Parameters
 
-The `updateCart` Business API has 6 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
+The `updateCart` Business API has 7 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
 
 Business API parameters can be:
 
@@ -74,6 +74,9 @@ Business API parameters can be:
 | **Description:** | -                                                                                         |          |         |           |                |
 |                  |                                                                                           |          |         |           |                |
 | `frf`            | `Integer`                                                                                 | `No`     | `-`     | `body`    | `frf`          |
+| **Description:** | -                                                                                         |          |         |           |                |
+|                  |                                                                                           |          |         |           |                |
+| `vrg`            | `Boolean`                                                                                 | `No`     | `-`     | `body`    | `vrg`          |
 | **Description:** | -                                                                                         |          |         |           |                |
 |                  |                                                                                           |          |         |           |                |
 
@@ -164,6 +167,7 @@ The business api will use the following data clause. Note that any calculated va
   yuy: this.yuy ? (typeof this.yuy == 'string' ? JSON.parse(this.yuy) : this.yuy) : null,
   OI: this.OI,
   frf: this.frf,
+  vrg: this.vrg,
 }
 ```
 
@@ -269,7 +273,7 @@ Manager triggers API-level events, sending relevant messages to Kafka or other i
 Client parameters are the api parameters that are visible to client and will be populated by the client.
 Note that some api parameters are not visible to client because they are populated by internal system, session, calculation or joint sources.
 
-The `updateCart` api has got 5 client parameters
+The `updateCart` api has got 6 client parameters
 
 | Parameter | Type    | Required | Population             |
 | --------- | ------- | -------- | ---------------------- |
@@ -278,6 +282,7 @@ The `updateCart` api has got 5 client parameters
 | yuy       | Object  | false    | request.body?.yuy      |
 | OI        | Boolean | false    | request.body?.OI       |
 | frf       | Integer | false    | request.body?.frf      |
+| vrg       | Boolean |          | request.body?.vrg      |
 
 ### REST Request
 
@@ -292,6 +297,7 @@ axios({
     yuy: "Object",
     OI: "Boolean",
     frf: "Integer",
+    vrg: "Boolean",
   },
   params: {},
 });
@@ -328,6 +334,7 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "yuy": "Object",
     "OI": "Boolean",
     "frf": "Integer",
+    "vrg": "Boolean",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",

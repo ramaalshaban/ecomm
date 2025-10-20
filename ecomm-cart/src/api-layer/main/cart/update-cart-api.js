@@ -38,6 +38,7 @@ class UpdateCartManager extends CartManager {
     jsonObj.yuy = this.yuy;
     jsonObj.OI = this.OI;
     jsonObj.frf = this.frf;
+    jsonObj.vrg = this.vrg;
   }
 
   async checkBasicAuth() {
@@ -51,6 +52,7 @@ class UpdateCartManager extends CartManager {
     this.yuy = request.body?.yuy;
     this.OI = request.body?.OI;
     this.frf = request.body?.frf;
+    this.vrg = request.body?.vrg;
     this.requestData = request.body;
     this.queryData = request.query ?? {};
     const url = request.url;
@@ -64,6 +66,7 @@ class UpdateCartManager extends CartManager {
     this.yuy = request.mcpParams.yuy;
     this.OI = request.mcpParams.OI;
     this.frf = request.mcpParams.frf;
+    this.vrg = request.mcpParams.vrg;
     this.requestData = request.mcpParams;
   }
 
@@ -104,6 +107,7 @@ class UpdateCartManager extends CartManager {
         : null,
       OI: this.OI,
       frf: this.frf,
+      vrg: this.vrg,
     };
 
     dataClause.lastModified = LIB.nowISO();
@@ -254,6 +258,29 @@ class UpdateCartManager extends CartManager {
     }
   }
 
+  checkParameterType_vrg(paramValue) {
+    const isBoolean = (n) => !!n === n;
+    if (!isBoolean(paramValue)) {
+      throw new BadRequestError("errMsg_vrgisNotAValidBoolean");
+    }
+
+    return true;
+  }
+
+  checkParameter_vrg() {
+    if (this.vrg == null) return;
+
+    if (Array.isArray(this.vrg)) {
+      throw new BadRequestError("errMsg_vrgMustNotBeAnArray");
+    }
+
+    // Parameter Type: Boolean
+
+    if (!this.checkParameterType_vrg(this.vrg)) {
+      throw new BadRequestError("errMsg_vrgTypeIsNotValid");
+    }
+  }
+
   checkParameters() {
     if (this.cartId) this.checkParameter_cartId();
 
@@ -264,6 +291,8 @@ class UpdateCartManager extends CartManager {
     if (this.OI) this.checkParameter_OI();
 
     if (this.frf) this.checkParameter_frf();
+
+    if (this.vrg) this.checkParameter_vrg();
   }
 
   setOwnership() {

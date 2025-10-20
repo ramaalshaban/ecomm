@@ -18,6 +18,7 @@ const validateData = (data) => {
     "yuy",
     "OI",
     "frf",
+    "vrg",
   ];
 
   requiredFields.forEach((field) => {

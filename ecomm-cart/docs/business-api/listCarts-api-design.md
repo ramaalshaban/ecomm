@@ -265,6 +265,7 @@ Following JSON represents the most comprehensive form of the **`carts`** object 
       "yuy": "Object",
       "OI": "Boolean",
       "frf": "Integer",
+      "vrg": "Boolean",
       "isActive": true,
       "recordVersion": "Integer",
       "createdAt": "Date",

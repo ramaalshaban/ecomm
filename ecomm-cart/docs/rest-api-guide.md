@@ -216,7 +216,8 @@ _Cart Resource Properties_
 | **lastModified** | Date | | | _Last time the cart was modified (any change to items)._ |
 | **yuy** | Object | | | ** |
 | **OI** | Boolean | | | ** |
-| **frf** | Integer | | | \*\* |
+| **frf** | Integer | | | ** |
+| **vrg** | Boolean | | | ** |
 
 ### CartItem resource
 
@@ -255,7 +256,7 @@ _Default access route_ : _POST_ `/v1/carts`
 
 #### Parameters
 
-The createCart api has got 4 parameters
+The createCart api has got 5 parameters
 
 | Parameter | Type    | Required | Population          |
 | --------- | ------- | -------- | ------------------- |
@@ -263,6 +264,7 @@ The createCart api has got 4 parameters
 | yuy       | Object  | true     | request.body?.yuy   |
 | OI        | Boolean | true     | request.body?.OI    |
 | frf       | Integer | true     | request.body?.frf   |
+| vrg       | Boolean | true     | request.body?.vrg   |
 
 To access the api you can use the **REST** controller with the path **POST /v1/carts**
 
@@ -275,6 +277,7 @@ axios({
     yuy: "Object",
     OI: "Boolean",
     frf: "Integer",
+    vrg: "Boolean",
   },
   params: {},
 });
@@ -309,6 +312,7 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "yuy": "Object",
     "OI": "Boolean",
     "frf": "Integer",
+    "vrg": "Boolean",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -375,6 +379,7 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "yuy": "Object",
     "OI": "Boolean",
     "frf": "Integer",
+    "vrg": "Boolean",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -395,7 +400,7 @@ _Default access route_ : _PATCH_ `/v1/carts/:cartId`
 
 #### Parameters
 
-The updateCart api has got 5 parameters
+The updateCart api has got 6 parameters
 
 | Parameter | Type    | Required | Population             |
 | --------- | ------- | -------- | ---------------------- |
@@ -404,6 +409,7 @@ The updateCart api has got 5 parameters
 | yuy       | Object  | false    | request.body?.yuy      |
 | OI        | Boolean | false    | request.body?.OI       |
 | frf       | Integer | false    | request.body?.frf      |
+| vrg       | Boolean |          | request.body?.vrg      |
 
 To access the api you can use the **REST** controller with the path **PATCH /v1/carts/:cartId**
 
@@ -416,6 +422,7 @@ axios({
     yuy: "Object",
     OI: "Boolean",
     frf: "Integer",
+    vrg: "Boolean",
   },
   params: {},
 });
@@ -450,6 +457,7 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "yuy": "Object",
     "OI": "Boolean",
     "frf": "Integer",
+    "vrg": "Boolean",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -516,6 +524,7 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "yuy": "Object",
     "OI": "Boolean",
     "frf": "Integer",
+    "vrg": "Boolean",
     "isActive": false,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -577,6 +586,7 @@ Following JSON represents the most comprehensive form of the **`carts`** object 
       "yuy": "Object",
       "OI": "Boolean",
       "frf": "Integer",
+      "vrg": "Boolean",
       "isActive": true,
       "recordVersion": "Integer",
       "createdAt": "Date",

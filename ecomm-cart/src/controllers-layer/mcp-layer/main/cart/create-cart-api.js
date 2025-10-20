@@ -40,6 +40,7 @@ class CreateCartMcpController extends CartMcpController {
             yuy: z.object().describe("null"),
             OI: z.boolean().describe("null"),
             frf: z.number().int().describe("null"),
+            vrg: z.boolean().describe("undefined"),
             isActive: z
               .boolean()
               .describe(
@@ -72,6 +73,8 @@ class CreateCartMcpController extends CartMcpController {
       OI: z.boolean().describe(""),
 
       frf: z.number().int().describe(""),
+
+      vrg: z.boolean().describe(""),
     };
   }
 }

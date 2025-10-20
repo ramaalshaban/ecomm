@@ -46,7 +46,7 @@ REST controllers also expose the Business API as a tool in the MCP, making it ac
 
 ## API Parameters
 
-The `createCart` Business API has 7 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
+The `createCart` Business API has 8 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
 
 Business API parameters can be:
 
@@ -77,6 +77,9 @@ Business API parameters can be:
 | **Description:** | -                                                                                                          |          |         |           |                |
 |                  |                                                                                                            |          |         |           |                |
 | `frf`            | `Integer`                                                                                                  | `Yes`    | `-`     | `body`    | `frf`          |
+| **Description:** | -                                                                                                          |          |         |           |                |
+|                  |                                                                                                            |          |         |           |                |
+| `vrg`            | `Boolean`                                                                                                  | `Yes`    | `-`     | `body`    | `vrg`          |
 | **Description:** | -                                                                                                          |          |         |           |                |
 |                  |                                                                                                            |          |         |           |                |
 
@@ -128,6 +131,7 @@ The business api will use the following data clause. Note that any calculated va
   yuy: this.yuy ? (typeof this.yuy == 'string' ? JSON.parse(this.yuy) : this.yuy) : null,
   OI: this.OI,
   frf: this.frf,
+  vrg: this.vrg,
   isActive: true,
 }
 ```
@@ -213,7 +217,7 @@ Manager triggers API-level events (Kafka, WebSocket, async workflows) as the fin
 Client parameters are the api parameters that are visible to client and will be populated by the client.
 Note that some api parameters are not visible to client because they are populated by internal system, session, calculation or joint sources.
 
-The `createCart` api has got 4 client parameters
+The `createCart` api has got 5 client parameters
 
 | Parameter | Type    | Required | Population          |
 | --------- | ------- | -------- | ------------------- |
@@ -221,6 +225,7 @@ The `createCart` api has got 4 client parameters
 | yuy       | Object  | true     | request.body?.yuy   |
 | OI        | Boolean | true     | request.body?.OI    |
 | frf       | Integer | true     | request.body?.frf   |
+| vrg       | Boolean | true     | request.body?.vrg   |
 
 ### REST Request
 
@@ -235,6 +240,7 @@ axios({
     yuy: "Object",
     OI: "Boolean",
     frf: "Integer",
+    vrg: "Boolean",
   },
   params: {},
 });
@@ -271,6 +277,7 @@ Following JSON represents the most comprehensive form of the **`cart`** object i
     "yuy": "Object",
     "OI": "Boolean",
     "frf": "Integer",
+    "vrg": "Boolean",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",

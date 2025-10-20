@@ -61,6 +61,11 @@ module.exports = (app) => {
               name: "frf",
               type: "Integer",
             },
+
+            {
+              name: "vrg",
+              type: "Boolean",
+            },
           ],
         },
         endpoints: [
@@ -78,6 +83,7 @@ module.exports = (app) => {
                 yuy: "Object",
                 OI: "Boolean",
                 frf: "Integer",
+                vrg: "Boolean",
               },
             },
 
@@ -116,6 +122,7 @@ module.exports = (app) => {
                 yuy: "Object",
                 OI: "Boolean",
                 frf: "Integer",
+                vrg: "Boolean",
               },
             },
 

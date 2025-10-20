@@ -10,6 +10,7 @@ const cartMapping = {
   yuy: { properties: {} },
   OI: { type: "boolean", null_value: false },
   frf: { type: "integer", index: true },
+  vrg: { type: "boolean", null_value: false },
   isActive: { type: "boolean" },
   recordVersion: { type: "integer" },
   createdAt: { type: "date" },

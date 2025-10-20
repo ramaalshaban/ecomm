@@ -12,7 +12,7 @@
         "tags": [
           "cart"
         ],
-        "summary": "The createCart API has 4 parameters.",
+        "summary": "The createCart API has 5 parameters.",
         "description": "This operation requires session parameters: userId (ID, required).",
         "requestBody": {
           "description": "",
@@ -411,7 +411,7 @@
         "tags": [
           "cart"
         ],
-        "summary": "The updateCart API has 5 parameters.",
+        "summary": "The updateCart API has 6 parameters.",
         "description": "updateCart",
         "parameters": [
           {
@@ -733,6 +733,10 @@
           "frf": {
             "type": "string",
             "nullable": false
+          },
+          "vrg": {
+            "type": "string",
+            "nullable": false
           }
         },
         "additionalProperties": false
@@ -763,6 +767,10 @@
             "nullable": true
           },
           "frf": {
+            "type": "string",
+            "nullable": true
+          },
+          "vrg": {
             "type": "string",
             "nullable": true
           }
@@ -1070,6 +1078,9 @@
           "frf": {
             "type": "string"
           },
+          "vrg": {
+            "type": "string"
+          },
           "isActive": {
             "type": "boolean"
           },
@@ -1112,6 +1123,9 @@
             "type": "string"
           },
           "frf": {
+            "type": "string"
+          },
+          "vrg": {
             "type": "string"
           },
           "isActive": {

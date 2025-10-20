@@ -13,6 +13,7 @@ message cart {
     google.protobuf.Struct yuy = 5;
     bool OI = 6;
     int32 frf = 7;
+    bool vrg = 8;
 }
 message cartItem {
     string id = 1;
