@@ -1,0 +1,48 @@
+
+syntax = "proto3";
+
+package productCatalog;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+message product {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string category = 4;
+    int32 price = 5;
+    repeated string images = 6;
+    bool availability = 7;
+    int32 status = 8;
+    int32 inventoryCount = 9;
+    string sku = 10;
+    repeated string tags = 11;
+    float weight = 12;
+    google.protobuf.Struct dimensions = 13;
+    google.protobuf.Struct attributes = 14;
+}
+
+
+
+
+message VoidRequest {}
+
+message CurrentUserReply {
+    string userId = 1;
+    string sessionId = 2;
+    string fullname = 3;
+    string email = 4;
+    string roleId = 5;
+    string avatar = 6;
+    bool emailVerified = 7;
+        string accessToken = 8;
+}
+
+message HelloMessageReply {
+    string hello = 1;
+}
+
+service productCatalogService {
+    rpc currentUser(VoidRequest) returns (CurrentUserReply);
+    rpc helloMessage(VoidRequest) returns (HelloMessageReply);
+}

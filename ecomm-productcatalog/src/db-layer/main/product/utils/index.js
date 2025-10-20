@@ -1,0 +1,15 @@
+module.exports = {
+  createProduct: require("./createProduct"),
+  getIdListOfProductByField: require("./getIdListOfProductByField"),
+  getProductById: require("./getProductById"),
+  getProductAggById: require("./getProductAggById"),
+  getProductListByQuery: require("./getProductListByQuery"),
+  getProductStatsByQuery: require("./getProductStatsByQuery"),
+  getProductByQuery: require("./getProductByQuery"),
+  updateProductById: require("./updateProductById"),
+  updateProductByIdList: require("./updateProductByIdList"),
+  updateProductByQuery: require("./updateProductByQuery"),
+  deleteProductById: require("./deleteProductById"),
+  deleteProductByQuery: require("./deleteProductByQuery"),
+  getProductBySku: require("./getProductBySku"),
+};
