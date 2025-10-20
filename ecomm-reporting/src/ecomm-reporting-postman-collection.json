@@ -1,0 +1,139 @@
+{
+  "info": {
+    "name": "ecomm-reporting-service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "createSalesReport",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"salesReportId\": \"ID\",\n  \"dateRange\": \"Object\",\n  \"totalRevenue\": \"Double\",\n  \"orderCount\": \"Integer\",\n  \"productCount\": \"Integer\",\n  \"bestsellers\": \"Object\",\n  \"refundsTotal\": \"Double\",\n  \"exportJobId\": \"ID\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{serviceUrl}}//v1/salesreports",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "salesreports"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "createExportJob",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"exportJobId\": \"ID\",\n  \"exportType\": \"Enum\",\n  \"status\": \"Enum\",\n  \"startedAt\": \"Date\",\n  \"completedAt\": \"Date\",\n  \"downloadUrl\": \"String\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{serviceUrl}}//v1/exportjobs",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "exportjobs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getExportJob",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{serviceUrl}}//v1/exportjobs/:exportJobId",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "exportjobs",
+            ":exportJobId"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "listExportJobs",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{serviceUrl}}//v1/exportjobs",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "exportjobs"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
